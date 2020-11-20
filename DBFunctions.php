@@ -19,11 +19,20 @@ class DBRepositoryFuncs
             echo "------0------" . $e->getMessage();            
             }   
     }  
-    public function GetData()
+    public function GetData($table,$where="",$whereValue="")
     {  
         try
         {
-            $this->conn->query("SELECT * FROM db");
+            if($where==null)
+            {
+                $this->conn->query("SELECT * FROM $table");
+            }
+            else
+            {
+                $this->conn->query("SELECT * FROM $table WHERE $where $whereValue");
+            }
+            
+            
             echo("veri getirme işlemi başarılı.");
         }
         catch(PDOException $e)

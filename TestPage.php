@@ -10,8 +10,7 @@
     include_once("DBFunctions.php");
     $dbfuncs = new DBRepositoryFuncs;
     $dbfuncs->Connect();
-    
-    
+    $dbfuncs->GetData();   
     ?>
 </body>
 </html>
